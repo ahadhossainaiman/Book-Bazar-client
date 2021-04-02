@@ -14,7 +14,7 @@ const AddBook = () => {
         price:data.price, 
         imageUrl:imageUrl
     };
-    const url =`http://localhost:5000/addBook`
+    const url =`https://nameless-plateau-23547.herokuapp.com/addBook`
     fetch(url,{
         method:'POST',
         headers:{ 'content-type':'application/json'},

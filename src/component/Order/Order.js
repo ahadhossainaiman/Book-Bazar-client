@@ -5,14 +5,15 @@ const Order = () => {
   const [order, setOrder] = useState({});
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:5000/checkOutOrder?=" + loggedInUser.email)
+    fetch("https://nameless-plateau-23547.herokuapp.com/checkOutOrder?=" + loggedInUser.email)
       .then((res) => res.json())
-      .then((data) => setOrder(data));
+      .then(data => setOrder(data));
   }, []);
+  console.log(order)
   return (
     <div>
       <h1>My Order</h1>
-      <table class="table-info table-striped table-bordered border-dark table-responsive">
+      <table className="table-info table-striped table-bordered border-dark table-responsive">
         <tr>
           <th colspan="5">Order Details</th>
           <th>User Details</th>

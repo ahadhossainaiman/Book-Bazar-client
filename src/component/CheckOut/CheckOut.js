@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
-import { UserContext } from "../../App";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { UserContext } from "../../App";
 
 const CheckOut = () => {
   const { id } = useParams();
@@ -10,7 +10,7 @@ const CheckOut = () => {
 
   const handleCheckOut = () => {
     const newCheckOut = { ...loggedInUser, ...date, ...book };
-    fetch("http://localhost:5000/addCheckOut", {
+    fetch("https://nameless-plateau-23547.herokuapp.com/addCheckOut", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newCheckOut),
@@ -20,13 +20,10 @@ const CheckOut = () => {
         console.log(data);
       });
   };
-  const checkOut = new Date();
-  //  setDate(checkOut);
-  // setDate(new Date())
-
+  // const checkOut = new Date();
   console.log(date);
   useEffect(() => {
-    fetch("http://localhost:5000/book/" + id)
+    fetch("https://nameless-plateau-23547.herokuapp.com/book/" + id)
       .then((res) => res.json())
       .then((data) => setBook(data));
   }, [id]);

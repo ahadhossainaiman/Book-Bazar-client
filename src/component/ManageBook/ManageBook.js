@@ -4,14 +4,14 @@ const ManageBook = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/books")
+    fetch("https://nameless-plateau-23547.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
 
   const handleDelete = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/deletebook/${id}`, {
+    fetch(`https://nameless-plateau-23547.herokuapp.com/deletebook/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
